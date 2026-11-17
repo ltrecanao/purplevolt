@@ -1,4 +1,4 @@
-/* PurpleVolt · módulo Diseñador: armado manual del riel DIN sobre el modelo común (store.comp).
+/* PurpleVolt · módulo Domiciliario (id disenador): armado manual del riel DIN sobre el modelo común (store.comp).
    Escribe componentes con rol general|dif|circ y sin auto (los de Tablero son auto:true y no se tocan).
    Posición en celdas de 20 px: x = 2 + 2·módulos usados en el riel, y = 2 + 10·riel (mismo criterio que lee Vista 3D).
    Criterio de carga (NO es norma): Ib = W / 220; simultaneidad 0,7 para la general. Cables de referencia, sin validar. */
@@ -107,7 +107,7 @@ return `<svg role="img" aria-label="Tablero" viewBox="0 0 ${MW} ${oy-GAP}" style
 const api={ordenar,verificar,ajustar,nuevo,nuevoSub,dibujar,lista,tabs,subs,ancho,ib,sec,USOS,STD};
 if(typeof module!=='undefined')module.exports=api;
 if(!g.Volt)return;
-g.Volt.register({id:'disenador',name:'Diseñador',hint:'',
+g.Volt.register({id:'disenador',name:'Domiciliario',hint:'',
 css:'#dzbox select{width:100%}#dzlz{display:flex}#dzlz svg{min-width:calc(var(--wd)*1px);max-width:calc(var(--wd)*1.3px)}@media (min-width:820px){#dzlz{padding:18px!important}#dzlz svg{min-width:calc(var(--wd)*.55px)}}',
 html:`<div class="tp"><div class="nt"><b>Solo para visualizar.</b> Distribución y cálculo de partida; no reemplaza el proyecto ni la verificación de un matriculado.</div>
 <p class="sub">Agregar</p><div id="dzact"></div><div class="ch" id="dzpal"></div>

@@ -59,3 +59,8 @@ a,img,svg{-webkit-user-drag:none}
 .ib:active,.it:active,.card:active{opacity:.7;transform:scale(.98)}
 .pry{margin:0 0 22px;padding-top:6px}.pry h3{font-size:1rem;margin:0 0 6px}.acc{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}.acc .ib{min-height:44px}
 @media (max-width:819px){.hw{padding:16px 14px 20px}.cards{gap:10px;grid-template-columns:1fr 1fr}.card{padding:14px;border-radius:16px}.card b{font-size:1.1rem}.card span,.avm{display:none}.lead{margin-bottom:14px}}
+/* módulo premium (mismo tratamiento que Purple3D) */
+.card.pago{border:1.5px solid var(--wr);box-shadow:0 0 18px -6px var(--wr)}
+.card.pago:hover{border-color:var(--ac)}
+.card.pago small{color:var(--wr)}
+.pgt{font-style:normal;font-size:.65rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--wr);border:1px solid var(--wr);border-radius:999px;padding:0 6px;line-height:1.5}

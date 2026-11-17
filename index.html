@@ -18,6 +18,7 @@
 <p class="mas">Se guarda solo en este dispositivo. Guardalo como archivo para hacer una copia o pasarlo a otro dispositivo.</p>
 <div class="acc"><button class="ib" id="pg">Guardar proyecto</button><button class="ib" id="pa">Abrir proyecto</button><button class="ib" id="pb">Borrar todo</button></div>
 <input type="file" id="pf" accept=".json,application/json" hidden><p class="mas" id="pm" role="status" aria-live="polite"></p></section>
+<p class="mas">Industrial es un módulo premium: escribime a <a href="mailto:purple.empresas@proton.me?subject=Acceso%20al%20m%C3%B3dulo%20Industrial%20(premium)%20-%20PurpleVolt">purple.empresas@proton.me</a> y te cuento cómo acceder.</p>
 <p class="mas">¿Necesitás un módulo para otro tipo de objeto? Los módulos nuevos se desarrollan a medida, como servicio a contratar: <a href="mailto:purple.empresas@proton.me?subject=M%C3%B3dulo%20a%20medida%20-%20PurpleVolt">purple.empresas@proton.me</a>.</p>
 </div></section>
 </div>
@@ -33,11 +34,16 @@ for(const id of Object.keys(T)){const v=document.getElementById(id);if(!v)contin
 $('#tt').textContent=T[r];document.title=(r==='home'?'':T[r]+' · ')+'PurpleVolt'}
 addEventListener('hashchange',go);go();
 fetch('static/js/modules/registry.json').then(r=>r.json()).then(ms=>{
-ms.forEach(m=>{T[m.id]=m.name;const id=esc(m.id),nm=esc(m.name);
+const MAIL='purple.empresas@proton.me',mailto=m=>'mailto:'+MAIL+'?subject='+encodeURIComponent('Acceso al módulo '+m.name+' (premium) - PurpleVolt');
+ms.forEach(m=>{const id=esc(m.id),nm=esc(m.name);
+if(m.pago){const hr=esc(mailto(m)),ic=`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="${esc(m.icon||'M4 4h16v16H4z')}"/></svg>`;
+$('#mods').insertAdjacentHTML('beforeend',`<a class="it pg" href="${hr}" title="Módulo premium: solicitar acceso">${ic}${nm}<em class="pgt">PRO</em></a>`);
+$('#cards').insertAdjacentHTML('beforeend',`<a class="card pago" href="${hr}"><small>★ Módulo premium</small><b>${nm}</b><span>${esc(m.description||'')}</span><i>Solicitar acceso →</i></a>`);return}
+T[m.id]=m.name;
 $('#mods').insertAdjacentHTML('beforeend',`<a class="it" data-r="${id}" href="#${id}"><svg viewBox="0 0 24 24"><path d="${esc(m.icon||'M4 4h16v16H4z')}"/></svg>${nm}</a>`);
 $('#cards').insertAdjacentHTML('beforeend',`<a class="card" href="#${id}"><small>Módulo</small><b>${nm}</b><span>${esc(m.description||'')}</span>${m.aviso?`<em class="avm"><strong>Aviso:</strong> ${esc(m.aviso)}</em>`:''}<i>Abrir →</i></a>`);
 const f=document.createElement('iframe');f.id=m.id;f.className='view';f.title=m.name;f.dataset.src='app.html?m='+encodeURIComponent(m.id);$('#main').appendChild(f)});
-KEYS=ms.map(m=>m.id);$('#keys').textContent='Atajos: '+KEYS.map((k,i)=>i+1).join(' · ');go()
+KEYS=ms.filter(m=>!m.pago).map(m=>m.id);$('#keys').textContent='Atajos: '+KEYS.map((k,i)=>i+1).join(' · ');go()
 }).catch(()=>{$('#cards').textContent='No se pudo cargar la lista de módulos.'});
 addEventListener('keydown',e=>{if(e.target.closest('input,select,textarea,dialog')||e.ctrlKey||e.metaKey||e.altKey)return;const m=KEYS[+e.key-1];if(m)location.hash=m});
 const msg=t=>{$('#pm').textContent=t},vacio=m=>!m.comp.length&&!m.cables.length&&!m.circ.length;

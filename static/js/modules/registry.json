@@ -1,9 +1,16 @@
 [
  {
   "id": "disenador",
-  "name": "Diseñador",
-  "description": "Armá el riel DIN a mano: térmica general, diferencial y circuitos de vivienda monofásica, con cableado y verificación de referencia.",
+  "name": "Domiciliario",
+  "description": "Electricidad domiciliaria: armá a mano el riel DIN de una vivienda monofásica con térmica general, diferencial, circuitos y subtableros, con cajas a escala y verificación de referencia.",
   "icon": "M12 3v5M5 8h14M5 8v4m7-4v4m7-4v4M3 12h4v4H3zm7 0h4v4h-4zm7 0h4v4h-4zM5 16v4m7-4v4m7-4v4",
   "aviso": "Solo para visualizar. Distribución y cálculo de partida; no reemplaza el proyecto ni la verificación de un matriculado."
+ },
+ {
+  "id": "industrial",
+  "name": "Industrial",
+  "description": "Tableros eléctricos industriales trifásicos.",
+  "icon": "M13 2 4 14h7l-1 8 9-12h-7z",
+  "pago": true
  }
 ]

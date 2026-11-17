@@ -68,3 +68,17 @@
 - Dibujo de la térmica y el diferencial con el formato modular estándar (IEC 60898 / DIN 43880): 18 mm por polo, 90 mm de alto, frente de 45 mm centrado (el resto son los hombros con los bornes), ~70 mm de fondo. Constantes `K`, `H`, `FR`, `FY`, `TS` en `disenador.js`.
 - El cartel del circuito muestra solo el código de uso (IUG, TUG...); la nomenclatura completa (`ITM 1P C10 · IUG`) está en la tabla y la marca de la térmica dice curva+corriente (C10, 1P).
 - Caché SW `v7`.
+
+## v1.8 - Módulo Diseñador pasa a Domiciliario
+- El módulo `disenador` se muestra como "Domiciliario" (electricidad domiciliaria, libre). El id no cambia (iframes, tests y SW siguen igual). Solo cambian `name`/`description` en `registry.json`, el `name` en `disenador.js` y la caché del SW (`v8`).
+- Pendiente de decisión: módulo premium `industrial` (alcance de v1 sin definir). Al agregarlo con `pago:true`, `index.html` y `sw.js` deben omitirlo (no hay `.js` público): igual que Purple3D, tarjeta "De pago" con mailto.
+
+## v1.9 - Industrial (premium, solo tarjeta)
+- `registry.json`: entrada `industrial` con `pago:true` (descripción provisoria, sin alcance definido). `index.html` la muestra como tarjeta y pestaña "De pago" con mailto, sin iframe ni atajo; `sw.js` la omite del precache (caché `v9`). Estilos `.pago`/`.pgt` copiados de Purple3D.
+- No existe `industrial.js`: el código irá fuera del repo público, bajo token.
+
+## v1.10 - Industrial más vendedor
+- Pestaña con ícono del registry y tarjeta premium: ícono en recuadro, etiqueta "Módulo premium", frase y botón "Quiero comprarlo →" (mailto). Caché SW `v10`.
+
+## v1.11 - Premium igual que Purple3D
+- Industrial se trata como los premium de Purple3D: pestaña con ícono y pastilla "PRO", tarjeta con borde dorado, "★ Módulo premium" y "Solicitar acceso →" (mailto). Se quitó el recuadro de ícono y el botón de la v1.10. Caché SW `v11`.
