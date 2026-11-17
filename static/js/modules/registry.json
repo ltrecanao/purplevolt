@@ -1,0 +1,9 @@
+[
+ {
+  "id": "disenador",
+  "name": "Diseñador",
+  "description": "Armá el riel DIN a mano: térmica general, diferencial y circuitos de vivienda monofásica, con cableado y verificación de referencia.",
+  "icon": "M12 3v5M5 8h14M5 8v4m7-4v4m7-4v4M3 12h4v4H3zm7 0h4v4h-4zm7 0h4v4h-4zM5 16v4m7-4v4m7-4v4",
+  "aviso": "Solo para visualizar. Distribución y cálculo de partida; no reemplaza el proyecto ni la verificación de un matriculado."
+ }
+]

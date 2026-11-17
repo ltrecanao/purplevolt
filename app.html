@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="es-AR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="color-scheme" content="light dark">
+<title>PurpleVolt</title>
+<link rel="icon" type="image/svg+xml" href="static/assets/purple.svg">
+<link rel="stylesheet" href="static/css/modulo.css">
+<style>
+body{display:flex;flex-direction:column;position:relative;overflow:hidden}
+#hint{position:absolute;z-index:2;top:8px;left:12px;right:12px;margin:0;font-size:.85rem;color:var(--mut);pointer-events:none}
+#cv{flex:none;height:44dvh;min-height:240px;background:var(--soft);position:relative;touch-action:none}
+#pn{flex:1;min-height:0}
+body.sc{flex-direction:column}body.sc #cv{display:none}body.sc #hint{position:static;margin:10px 14px 0}
+body.sc #pn{width:auto;max-width:none;border:0}
+@media (min-width:820px){body{flex-direction:row}#cv{flex:1;height:100%;min-height:0}#pn{flex:none;width:420px;max-width:42vw;border-left:1px solid var(--bd)}}
+</style></head><body>
+<p id="hint"></p><div id="cv"></div><main id="pn"></main>
+<script src="static/js/volt.js"></script>
+<script>
+const $=s=>document.querySelector(s),id=new URLSearchParams(location.search).get('m')||'',s=document.createElement('script');
+s.src='static/js/modules/'+encodeURIComponent(id)+'.js';
+s.onload=()=>{const m=Volt.modules[id];if(!m)return;document.title=m.name+' · PurpleVolt';$('#hint').textContent=m.hint||'';
+if(m.canvas===false)document.body.classList.add('sc');
+if(m.css){const st=document.createElement('style');st.textContent=m.css;document.head.appendChild(st)}
+$('#pn').innerHTML=m.html||'';m.mount({host:$('#cv'),panel:$('#pn'),store:Volt.store})};
+s.onerror=()=>{$('#pn').textContent='No se encontró el módulo «'+id+'».'};
+document.head.appendChild(s);
+</script></body></html>

@@ -1,0 +1,13 @@
+{"nota":"Medidas de publicaciones de venta (Easy, 2026): ancho x alto x profundidad en mm. Verificar con la ficha del fabricante antes de comprar.",
+"cajas":[
+{"id":"genrod-4504","marca":"Genrod","nombre":"4504","tipo":"sobreponer","mod":4,"filas":1,"w":190,"h":140,"d":100},
+{"id":"roker-pr417","marca":"Roker","nombre":"PR417","tipo":"embutir","mod":6,"filas":1,"w":182,"h":182,"d":115},
+{"id":"genrod-4508","marca":"Genrod","nombre":"4508","tipo":"sobreponer","mod":8,"filas":1,"w":210,"h":190,"d":100},
+{"id":"roker-pr413","marca":"Roker","nombre":"PR413","tipo":"sobreponer","mod":12,"filas":1,"w":261,"h":161,"d":90},
+{"id":"roker-pr412","marca":"Roker","nombre":"PR412","tipo":"embutir","mod":12,"filas":1,"w":261,"h":165,"d":88},
+{"id":"genrod-12","marca":"Genrod","nombre":"12 módulos tapa fumé","tipo":"sobreponer","mod":12,"filas":1,"w":280,"h":200,"d":110},
+{"id":"genrod-ip65-12","marca":"Genrod","nombre":"IP65 161200G","tipo":"sobreponer","mod":12,"filas":1,"w":300,"h":170,"d":110},
+{"id":"genrod-16","marca":"Genrod","nombre":"16 módulos tapa fumé","tipo":"sobreponer","mod":16,"filas":1,"w":350,"h":200,"d":110},
+{"id":"genrod-4016","marca":"Genrod","nombre":"4016","tipo":"embutir","mod":16,"filas":1,"w":350,"h":200,"d":120},
+{"id":"genrod-24","marca":"Genrod","nombre":"24 módulos tapa fumé","tipo":"sobreponer","mod":24,"filas":2,"w":280,"h":320,"d":110}
+]}

@@ -1,0 +1,114 @@
+/* PurpleVolt · base común de TODOS los módulos (única fuente de verdad).
+   Los módulos no definen colores, botones, campos ni filas propios: usan estas clases.
+   Mismos tokens que la app (style.css): morado #6d28d9 claro / #a78bfa oscuro. */
+@font-face{font-family:'Inter';font-style:normal;font-weight:400 800;font-display:swap;src:url('../fonts/inter-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Inter';font-style:normal;font-weight:400 800;font-display:swap;src:url('../fonts/inter-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F,U+1EF2-1EFF,U+20A0-20AB,U+20AD-20C4,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Instrument Serif';font-style:italic;font-weight:400;font-display:swap;src:url('../fonts/instrument-serif-italic-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F,U+20AC,U+2122}
+:root{--bg:#faf8ff;--card:#fff;--soft:#f0eafd;--tx:#1e1b2e;--mut:#5e5877;--bd:#e4def5;--ac:#6d28d9;--acx:#fff;--bad:#b3261e;--wrn:#8a5a00;--ok:#1b6e3c;--r:12px;--h:44px}
+@media (prefers-color-scheme:dark){:root{--bg:#14111f;--card:#1d1930;--soft:#251f3d;--tx:#efeaff;--mut:#a9a1c4;--bd:#332c4d;--ac:#a78bfa;--acx:#1a1230;--bad:#ff8a80;--wrn:#f0c36a;--ok:#7ddc9f}}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+[hidden]{display:none!important}
+*{scrollbar-width:none}*::-webkit-scrollbar{display:none}
+html,body{height:100%;margin:0;overscroll-behavior:none;-webkit-text-size-adjust:100%;-webkit-font-smoothing:antialiased}
+body{background:var(--card);color:var(--tx);font:16px/1.45 'Inter',system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;cursor:default;touch-action:manipulation}
+input,select,textarea,pre{-webkit-user-select:text;user-select:text}
+:focus-visible{outline:3px solid var(--ac);outline-offset:2px;border-radius:8px}
+
+/* ---- Botones: un solo sistema ---- */
+button,select,input:not([type=checkbox]):not([type=range]),textarea{font:inherit;font-size:.9rem;color:var(--tx);background:var(--bg);border:1px solid var(--bd);border-radius:var(--r);min-height:var(--h);padding:0 12px;min-width:0;transition:opacity .12s,transform .12s,background .12s,border-color .12s}
+input:not([type=checkbox]):not([type=range]),select,textarea{font-size:16px;padding:6px 10px}
+textarea{width:100%;min-height:96px;padding:10px 12px;resize:vertical}
+button{cursor:pointer}
+button:hover{border-color:var(--ac)}
+button:active{opacity:.7;transform:scale(.98)}
+button:disabled{opacity:.45;cursor:default}
+button.pri,button.on{background:var(--ac);color:var(--acx);border-color:var(--ac)}
+button.full{width:100%;margin-top:8px}
+button[aria-checked=true]{background:var(--ac);color:var(--acx);border-color:var(--ac)}
+.num{width:76px}
+input[type=checkbox]{width:22px;height:22px;margin:0;accent-color:var(--ac);flex:none}
+input[type=range]{flex:1;min-width:120px;min-height:32px;padding:0;border:0;background:none;accent-color:var(--ac)}
+
+/* ---- Estructura ---- */
+#pn{display:flex;flex-direction:column;padding:0;overflow:hidden;background:var(--card);color:var(--tx)}
+.tp{flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;padding:12px 14px}
+#aw{padding:5px 14px;font-size:.7rem;color:var(--mut);border-top:1px solid var(--bd)}
+#tb{display:flex;border-top:1px solid var(--bd);padding-bottom:env(safe-area-inset-bottom,0px);background:var(--card)}
+#tb button{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:52px;border:0;border-radius:0;background:none;font-size:.68rem;color:var(--mut);padding:4px 2px;position:relative}
+#tb button svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+#tb button.on{color:var(--ac);font-weight:700;background:none}
+#tb i{position:absolute;top:3px;left:54%;min-width:16px;height:16px;border-radius:8px;background:var(--wrn);color:var(--card);font-style:normal;font-size:.65rem;line-height:16px;text-align:center;padding:0 4px}
+@media (max-width:819px){#cv{height:38dvh;min-height:150px}}
+@media (min-width:820px){#tb{order:-1;border-top:0;border-bottom:1px solid var(--bd)}#aw{order:2}}
+
+/* ---- Filas, grillas y campos ---- */
+.row{display:flex;align-items:center;gap:10px;margin:6px 0}
+.row>label{width:78px;flex:none;font-size:.8rem;color:var(--mut)}
+.row>output{min-width:120px;font-size:.78rem;text-align:right}
+.bt{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+.seg{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:8px;margin:8px 0}
+.ch{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 10px}
+.g2,.g3{display:grid;gap:8px;margin:8px 0}.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}
+.g2>label,.g3>label,.fl{display:flex;flex-direction:column;gap:3px;font-size:.72rem;color:var(--mut);min-width:0}
+.fl{margin:8px 0}
+label.ck,.ck>label{display:flex;flex-direction:row;align-items:center;gap:10px;min-height:var(--h);font-size:.9rem;color:var(--tx)}
+.ck{display:flex;flex-wrap:wrap;gap:0 16px;margin:4px 0}
+.g3>label.ck{align-self:end}
+#lay{font-size:.85rem;margin:6px 0}#lay b{display:block;margin:6px 0 0}#lay label{display:inline-flex;align-items:center;gap:8px;min-height:36px;margin-right:14px}
+.asm ul{margin:6px 0;padding-left:20px}
+.stp{display:flex;align-items:center;gap:8px;margin:8px 0}.stp b{min-width:120px;text-align:center;font-weight:400}
+.lst{display:flex;gap:6px;margin:6px 0}.lst>*{flex:1}.lst>input[data-f=qty]{flex:none;width:64px}.lst>button{flex:none;width:var(--h);padding:0}
+
+/* ---- Bloques de texto y estado ---- */
+details{margin:12px 0;font-size:.85rem}
+summary{cursor:pointer;color:var(--tx);font-weight:600;min-height:32px;display:flex;align-items:center}
+.mu{font-size:.8rem;color:var(--mut);margin:6px 0}
+.mu.sm{font-size:.75rem}
+.sub{font-size:.8rem;font-weight:600;color:var(--tx);margin:12px 0 4px}
+pre{white-space:pre-wrap;margin:6px 0;font-size:.8rem;color:var(--mut);font-family:inherit}
+.nt{border-left:3px solid var(--wrn);background:var(--bg);border-radius:8px;padding:8px 10px;color:var(--mut);margin:8px 0;font-size:.8rem;line-height:1.4}
+.nt b{color:var(--tx)}
+.ok{color:var(--ok)}.wrn{color:var(--wrn)}.bad{color:var(--bad)}
+#st,#fal,#warn,.msg{font-size:.85rem;margin:8px 0}
+
+/* ---- Imagen exportada (superposición) ---- */
+.ovl{position:fixed;inset:0;z-index:20;background:rgba(0,0,0,.88);display:flex;flex-direction:column;align-items:center;gap:10px;padding:calc(12px + env(safe-area-inset-top,0px)) 12px calc(12px + env(safe-area-inset-bottom,0px));overflow:auto}
+.ovl img{max-width:100%;width:100%;max-width:900px;height:auto;border-radius:var(--r)}
+.ovl p{margin:0;font-size:.8rem;color:#e8e8ee;text-align:center}
+.ovl button{background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.3)}
+.ovl button.pri{background:var(--ac);color:var(--acx);border-color:var(--ac)}
+
+/* ---- Tablas de datos ---- */
+.tbl{width:100%;border-collapse:collapse;font-size:.78rem}
+.tbl th,.tbl td{border-bottom:1px solid var(--bd);padding:6px 8px;text-align:left;vertical-align:top}
+.tbl th{color:var(--mut);font-weight:600}
+
+/* ---- Esquema unifilar (SVG) ---- */
+.sv{display:block;margin:0 auto;min-height:0}
+.sv line{stroke:var(--tx);stroke-width:1.5}
+.sv rect{fill:var(--card);stroke:var(--ac);stroke-width:1.5}
+.sv text{fill:var(--tx);font:11px 'Inter',system-ui,sans-serif}
+.sv text.mu{fill:var(--mut)}
+
+/* ---- Lienzo del simulador (SVG) ---- */
+.sm{margin:0;cursor:default}
+.sm .gr{fill:none;stroke:var(--bd);stroke-width:1}
+.sm .bg{fill-opacity:1}
+.sm .cmp rect{stroke-width:1.5}
+.sm .cmp.sel rect{stroke-width:3}
+.sm .cmp.disp rect{stroke:var(--bad);stroke-width:3}
+.sm .cmp text.b{font-weight:700}
+.sm .t circle{fill:var(--bg);stroke:var(--mut);stroke-width:1.5}
+.sm .t.ini circle{fill:var(--ac);stroke:var(--ac)}
+.sm .t .hit{fill:transparent;stroke:none}
+.sm .w{fill:none;stroke:var(--mut);stroke-width:2;stroke-linejoin:round;pointer-events:none}
+.sm .w.on{stroke:var(--ac);stroke-width:3}
+.sm .w.sel{stroke:var(--wrn);stroke-width:4}
+.sm polyline.hit{fill:none;stroke:transparent;stroke-width:18;cursor:pointer}
+.sm .lamp{fill:var(--wrn);stroke:var(--wrn)}
+.sm .x{fill:none;stroke:var(--mut);stroke-width:1.5}
+.sm circle.run{stroke:var(--ok);stroke-width:3}
+.sm .cmp circle:not(.hit):not(.lamp){fill:none;stroke:var(--tx)}
+
+/* ---- Contenedor con desplazamiento horizontal (tablas anchas) ---- */
+.scr{overflow-x:auto;margin-top:8px}

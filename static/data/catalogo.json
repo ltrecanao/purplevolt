@@ -1,0 +1,545 @@
+{
+ "v": 1,
+ "rubros": {
+  "proteccion": "Protección",
+  "maniobra": "Maniobra",
+  "senalizacion": "Señalización",
+  "carga": "Cargas",
+  "alimentacion": "Alimentación"
+ },
+ "tipos": [
+  {
+   "id": "termica",
+   "nombre": "Interruptor termomagnético",
+   "rubro": "proteccion",
+   "desc": "Protege el circuito contra sobrecarga y cortocircuito. Es la protección que se verifica en el módulo Cálculo.",
+   "bornes": [
+    {
+     "id": "1",
+     "etq": "Entrada (línea)",
+     "lado": "t"
+    },
+    {
+     "id": "2",
+     "etq": "Salida (carga)",
+     "lado": "b"
+    }
+   ],
+   "p": {
+    "in": {
+     "etq": "Corriente nominal",
+     "unidad": "A",
+     "tipo": "opc",
+     "opc": [
+      6,
+      10,
+      16,
+      20,
+      25,
+      32,
+      40,
+      50,
+      63
+     ],
+     "def": 16
+    },
+    "curva": {
+     "etq": "Curva",
+     "tipo": "opc",
+     "opc": [
+      "B",
+      "C",
+      "D"
+     ],
+     "def": "C"
+    },
+    "poder": {
+     "etq": "Poder de corte",
+     "unidad": "kA",
+     "tipo": "opc",
+     "opc": [
+      3,
+      4.5,
+      6,
+      10
+     ],
+     "def": 4.5
+    },
+    "polos": {
+     "etq": "Polos",
+     "tipo": "opc",
+     "opc": [
+      1,
+      2
+     ],
+     "def": 1
+    }
+   },
+   "material": {
+    "rubro": "Protecciones",
+    "nombre": "Interruptor termomagnético"
+   },
+   "corto": "Térmica"
+  },
+  {
+   "id": "diferencial",
+   "nombre": "Interruptor diferencial",
+   "rubro": "proteccion",
+   "desc": "Corta ante fuga a tierra. Protege a las personas contra contactos indirectos.",
+   "bornes": [
+    {
+     "id": "L1",
+     "etq": "Fase entrada",
+     "lado": "t"
+    },
+    {
+     "id": "N1",
+     "etq": "Neutro entrada",
+     "lado": "t"
+    },
+    {
+     "id": "L2",
+     "etq": "Fase salida",
+     "lado": "b"
+    },
+    {
+     "id": "N2",
+     "etq": "Neutro salida",
+     "lado": "b"
+    }
+   ],
+   "p": {
+    "in": {
+     "etq": "Corriente nominal",
+     "unidad": "A",
+     "tipo": "opc",
+     "opc": [
+      25,
+      40,
+      63
+     ],
+     "def": 40
+    },
+    "idn": {
+     "etq": "Sensibilidad",
+     "unidad": "mA",
+     "tipo": "opc",
+     "opc": [
+      30,
+      300
+     ],
+     "def": 30
+    },
+    "clase": {
+     "etq": "Clase",
+     "tipo": "opc",
+     "opc": [
+      "AC",
+      "A"
+     ],
+     "def": "A"
+    }
+   },
+   "material": {
+    "rubro": "Protecciones",
+    "nombre": "Interruptor diferencial 2 polos"
+   },
+   "corto": "Diferencial"
+  },
+  {
+   "id": "contactor",
+   "nombre": "Contactor",
+   "rubro": "maniobra",
+   "desc": "Interruptor de potencia accionado por una bobina. Dos polos normalmente abiertos (1-2 y 3-4).",
+   "bornes": [
+    {
+     "id": "A1",
+     "etq": "Bobina +",
+     "lado": "t"
+    },
+    {
+     "id": "A2",
+     "etq": "Bobina −",
+     "lado": "b"
+    },
+    {
+     "id": "1",
+     "etq": "Polo 1 entrada",
+     "lado": "t"
+    },
+    {
+     "id": "2",
+     "etq": "Polo 1 salida",
+     "lado": "b"
+    },
+    {
+     "id": "3",
+     "etq": "Polo 2 entrada",
+     "lado": "t"
+    },
+    {
+     "id": "4",
+     "etq": "Polo 2 salida",
+     "lado": "b"
+    }
+   ],
+   "p": {
+    "bobina": {
+     "etq": "Tensión de bobina",
+     "unidad": "V",
+     "tipo": "opc",
+     "opc": [
+      24,
+      220
+     ],
+     "def": 220
+    },
+    "ie": {
+     "etq": "Corriente de empleo AC-3",
+     "unidad": "A",
+     "tipo": "opc",
+     "opc": [
+      9,
+      12,
+      18,
+      25,
+      32
+     ],
+     "def": 12
+    }
+   },
+   "material": {
+    "rubro": "Maniobra",
+    "nombre": "Contactor 2 polos"
+   },
+   "corto": "Contactor"
+  },
+  {
+   "id": "rele",
+   "nombre": "Relé",
+   "rubro": "maniobra",
+   "desc": "Relé de control con un contacto conmutado: común (11), normal cerrado (12) y normal abierto (14).",
+   "bornes": [
+    {
+     "id": "A1",
+     "etq": "Bobina +",
+     "lado": "t"
+    },
+    {
+     "id": "A2",
+     "etq": "Bobina −",
+     "lado": "b"
+    },
+    {
+     "id": "11",
+     "etq": "Común",
+     "lado": "t"
+    },
+    {
+     "id": "12",
+     "etq": "Normal cerrado",
+     "lado": "b"
+    },
+    {
+     "id": "14",
+     "etq": "Normal abierto",
+     "lado": "b"
+    }
+   ],
+   "p": {
+    "bobina": {
+     "etq": "Tensión de bobina",
+     "unidad": "V",
+     "tipo": "opc",
+     "opc": [
+      12,
+      24,
+      220
+     ],
+     "def": 24
+    },
+    "contacto": {
+     "etq": "Corriente del contacto",
+     "unidad": "A",
+     "tipo": "opc",
+     "opc": [
+      5,
+      10,
+      16
+     ],
+     "def": 10
+    }
+   },
+   "material": {
+    "rubro": "Maniobra",
+    "nombre": "Relé con zócalo"
+   },
+   "corto": "Relé"
+  },
+  {
+   "id": "pulsador",
+   "nombre": "Pulsador",
+   "rubro": "maniobra",
+   "desc": "Conduce solo mientras se lo mantiene apretado. Normal abierto (NA) o normal cerrado (NC).",
+   "bornes": [
+    {
+     "id": "1",
+     "etq": "Borne 1",
+     "lado": "t"
+    },
+    {
+     "id": "2",
+     "etq": "Borne 2",
+     "lado": "b"
+    }
+   ],
+   "p": {
+    "contacto": {
+     "etq": "Contacto",
+     "tipo": "opc",
+     "opc": [
+      "NA",
+      "NC"
+     ],
+     "def": "NA"
+    },
+    "color": {
+     "etq": "Color",
+     "tipo": "opc",
+     "opc": [
+      "Negro",
+      "Verde",
+      "Rojo"
+     ],
+     "def": "Negro"
+    }
+   },
+   "material": {
+    "rubro": "Maniobra",
+    "nombre": "Pulsador 22 mm"
+   },
+   "corto": "Pulsador"
+  },
+  {
+   "id": "lampara",
+   "nombre": "Lámpara / piloto",
+   "rubro": "senalizacion",
+   "desc": "Carga resistiva simple. Sirve de piloto de señalización o de lámpara de prueba.",
+   "bornes": [
+    {
+     "id": "X1",
+     "etq": "Borne 1",
+     "lado": "t"
+    },
+    {
+     "id": "X2",
+     "etq": "Borne 2",
+     "lado": "b"
+    }
+   ],
+   "p": {
+    "potencia": {
+     "etq": "Potencia",
+     "unidad": "W",
+     "tipo": "num",
+     "min": 1,
+     "max": 100,
+     "paso": 1,
+     "def": 10
+    },
+    "tension": {
+     "etq": "Tensión",
+     "unidad": "V",
+     "tipo": "opc",
+     "opc": [
+      24,
+      220
+     ],
+     "def": 220
+    },
+    "color": {
+     "etq": "Color",
+     "tipo": "opc",
+     "opc": [
+      "Rojo",
+      "Verde",
+      "Ámbar",
+      "Blanco"
+     ],
+     "def": "Verde"
+    }
+   },
+   "material": {
+    "rubro": "Señalización",
+    "nombre": "Piloto 22 mm"
+   },
+   "corto": "Lámpara"
+  },
+  {
+   "id": "motor",
+   "nombre": "Motor monofásico",
+   "rubro": "carga",
+   "desc": "Carga inductiva. La corriente de régimen sale de potencia, rendimiento y cos φ; el arranque no está modelado.",
+   "bornes": [
+    {
+     "id": "L",
+     "etq": "Fase",
+     "lado": "t"
+    },
+    {
+     "id": "N",
+     "etq": "Neutro",
+     "lado": "t"
+    },
+    {
+     "id": "PE",
+     "etq": "Tierra",
+     "lado": "b"
+    }
+   ],
+   "p": {
+    "potencia": {
+     "etq": "Potencia en el eje",
+     "unidad": "W",
+     "tipo": "num",
+     "min": 100,
+     "max": 2200,
+     "paso": 10,
+     "def": 750
+    },
+    "tension": {
+     "etq": "Tensión",
+     "unidad": "V",
+     "tipo": "opc",
+     "opc": [
+      220
+     ],
+     "def": 220
+    },
+    "cosf": {
+     "etq": "cos φ",
+     "tipo": "num",
+     "min": 0.5,
+     "max": 1,
+     "paso": 0.01,
+     "def": 0.8
+    },
+    "rend": {
+     "etq": "Rendimiento",
+     "tipo": "num",
+     "min": 0.5,
+     "max": 1,
+     "paso": 0.01,
+     "def": 0.75
+    }
+   },
+   "material": {
+    "rubro": "Cargas",
+    "nombre": "Motor monofásico"
+   },
+   "corto": "Motor"
+  },
+  {
+   "id": "red",
+   "nombre": "Red monofásica",
+   "rubro": "alimentacion",
+   "desc": "Acometida de 220 V, 50 Hz: fase, neutro y tierra.",
+   "bornes": [
+    {
+     "id": "L",
+     "etq": "Fase",
+     "lado": "b"
+    },
+    {
+     "id": "N",
+     "etq": "Neutro",
+     "lado": "b"
+    },
+    {
+     "id": "PE",
+     "etq": "Tierra",
+     "lado": "b"
+    }
+   ],
+   "p": {
+    "tension": {
+     "etq": "Tensión",
+     "unidad": "V",
+     "tipo": "opc",
+     "opc": [
+      220
+     ],
+     "def": 220
+    },
+    "frecuencia": {
+     "etq": "Frecuencia",
+     "unidad": "Hz",
+     "tipo": "opc",
+     "opc": [
+      50
+     ],
+     "def": 50
+    }
+   },
+   "material": null,
+   "corto": "Red 220 V"
+  },
+  {
+   "id": "fuente",
+   "nombre": "Fuente de corriente continua",
+   "rubro": "alimentacion",
+   "desc": "Convierte 220 V CA en baja tensión CC para el circuito de comando.",
+   "bornes": [
+    {
+     "id": "L",
+     "etq": "Entrada fase",
+     "lado": "t"
+    },
+    {
+     "id": "N",
+     "etq": "Entrada neutro",
+     "lado": "t"
+    },
+    {
+     "id": "+",
+     "etq": "Salida +",
+     "lado": "b"
+    },
+    {
+     "id": "-",
+     "etq": "Salida −",
+     "lado": "b"
+    }
+   ],
+   "p": {
+    "salida": {
+     "etq": "Tensión de salida",
+     "unidad": "V",
+     "tipo": "opc",
+     "opc": [
+      12,
+      24
+     ],
+     "def": 24
+    },
+    "corriente": {
+     "etq": "Corriente máxima",
+     "unidad": "A",
+     "tipo": "opc",
+     "opc": [
+      1,
+      2.5,
+      5,
+      10
+     ],
+     "def": 2.5
+    }
+   },
+   "material": {
+    "rubro": "Alimentación",
+    "nombre": "Fuente conmutada riel DIN"
+   },
+   "corto": "Fuente"
+  }
+ ]
+}
