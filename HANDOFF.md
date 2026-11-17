@@ -82,3 +82,12 @@
 
 ## v1.11 - Premium igual que Purple3D
 - Industrial se trata como los premium de Purple3D: pestaña con ícono y pastilla "PRO", tarjeta con borde dorado, "★ Módulo premium" y "Solicitar acceso →" (mailto). Se quitó el recuadro de ícono y el botón de la v1.10. Caché SW `v11`.
+
+## v1.12 - Industrial "En desarrollo"
+- `registry.json`: `industrial` pasa de `pago:true` a `desarrollo:true`. Se muestra como tarjeta y pestaña "En desarrollo" (sin enlace, sin atajo, sin iframe); `sw.js` lo omite (caché `v12`). Se quitó el texto de premium/mail de la home y los estilos `.pago`.
+
+## v1.13 - Industrial vuelve a premium
+- Se descartó "En desarrollo" (v1.12). `industrial` queda con `pago:true`: pestaña con ícono y pastilla PRO, tarjeta "★ Módulo premium" y "Solicitar acceso →" (mailto). Caché SW `v13`. Sin `industrial.js` en el zip público.
+
+## v1.14 - Descripción del módulo Industrial
+- `registry.json`: descripción de `industrial` alineada con la página institucional (trifásico 380 V, motores, arranque directo y estrella-triángulo, PLC como componente, protecciones y cables de referencia). Es solo texto: el módulo no existe todavía. Caché SW `v14`.

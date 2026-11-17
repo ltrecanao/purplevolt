@@ -9,7 +9,7 @@
  {
   "id": "industrial",
   "name": "Industrial",
-  "description": "Tableros eléctricos industriales trifásicos.",
+  "description": "Tableros industriales trifásicos de 380 V: motores con guardamotor, contactor y relé térmico, arranque directo y estrella-triángulo, PLC como componente del tablero (alimentación, entradas y salidas), y protecciones y cables de referencia.",
   "icon": "M13 2 4 14h7l-1 8 9-12h-7z",
   "pago": true
  }
